@@ -115,6 +115,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="administracion.h" />
+    <ClInclude Include="coleccion.h" />
+    <ClInclude Include="contrato.h" />
+    <ClInclude Include="depContabilidad.h" />
+    <ClInclude Include="empresa.h" />
+    <ClInclude Include="excepcion.h" />
+    <ClInclude Include="objetoBase.h" />
+    <ClInclude Include="persona.h" />
+    <ClInclude Include="tools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="administracion.cpp" />
+    <ClCompile Include="coleccion.cpp" />
+    <ClCompile Include="contrato.cpp" />
+    <ClCompile Include="depContabilidad.cpp" />
+    <ClCompile Include="empresa.cpp" />
+    <ClCompile Include="excepcion.cpp" />
+    <ClCompile Include="objetoBase.cpp" />
+    <ClCompile Include="persona.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
