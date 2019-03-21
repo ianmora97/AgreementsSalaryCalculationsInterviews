@@ -119,6 +119,7 @@
     <ClInclude Include="coleccion.h" />
     <ClInclude Include="contrato.h" />
     <ClInclude Include="depContabilidad.h" />
+    <ClInclude Include="empleado.h" />
     <ClInclude Include="empresa.h" />
     <ClInclude Include="excepcion.h" />
     <ClInclude Include="objetoBase.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="coleccion.cpp" />
     <ClCompile Include="contrato.cpp" />
     <ClCompile Include="depContabilidad.cpp" />
+    <ClCompile Include="empleado.cpp" />
     <ClCompile Include="empresa.cpp" />
     <ClCompile Include="excepcion.cpp" />
     <ClCompile Include="objetoBase.cpp" />

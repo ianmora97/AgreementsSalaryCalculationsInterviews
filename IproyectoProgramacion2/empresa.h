@@ -4,7 +4,6 @@
 #include "tools.h"
 #include "administracion.h"
 #include "depContabilidad.h"
-#include "contrato.h"
 #include "coleccion.h"
 
 using namespace std;
@@ -32,7 +31,6 @@ private:
 
 	administracion* rrhh;
 	depContabilidad* contabilidad;
-	contrato* _contrato;
 
 	coleccion** _empleados;
 	int _cant, _tam;

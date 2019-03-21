@@ -42,6 +42,9 @@
     <ClInclude Include="excepcion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="empleado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="empresa.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="excepcion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="empleado.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
