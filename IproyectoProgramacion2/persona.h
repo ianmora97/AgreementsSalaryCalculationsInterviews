@@ -2,9 +2,8 @@
 #define PERSONA_H
 
 #include "tools.h"
-#include "objetoBase.h"
 
-class persona : public objetoBase { //es la clase empleado
+class persona { //es la clase empleado
 public:
 	persona();
 	persona(string, string, string, string, string, string);

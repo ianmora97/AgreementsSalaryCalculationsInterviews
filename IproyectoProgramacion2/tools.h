@@ -11,6 +11,8 @@
 #include <time.h>
 #include <Windows.h>
 #include <fstream>
+#include <iomanip>
+
 
 using namespace std;
 
@@ -25,25 +27,22 @@ string toUpper(string palabra) { //para poder pasar todo a mayusculas si es nece
 
 int evaluarInt(int max, int min) {  //evalua un numero entero, por parametros recibe el rango
 	int valor = NULL;               //en el que se pueda evaluar un entero
-	bool ciclo = true;
-	while (ciclo == true) {
-		cout << " > ";
-		if (!(cin >> valor)) {
+	cout << " > ";
+	if (!(cin >> valor)) {
+		cin.clear();
+		cin.ignore(1024, '\n');
+		throw 1;
+	}
+	else {
+		if ((valor >= min) && (valor <= max)) {
 			cin.clear();
-			cin.ignore(1024, '\n');
-			ciclo = true;
+			cin.ignore(1024, '\n');	
 		}
 		else {
-			if ((valor >= min) && (valor <= max)) {
-				cin.clear();
-				cin.ignore(1024, '\n');
-				ciclo = false;
-			}
-			else {
-				cin.clear();
-				cin.ignore(1024, '\n');
-				ciclo = true;
-			}
+			cin.clear();
+			cin.ignore(1024, '\n');
+			throw 2;
+				
 		}
 	}
 	return valor;

@@ -18,12 +18,6 @@
     <ClInclude Include="empresa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="objetoBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="coleccion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="persona.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,21 +33,30 @@
     <ClInclude Include="administracion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="excepcion.h">
+    <ClInclude Include="empleado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="empleado.h">
+    <ClInclude Include="contServicios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contPlanilla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contPlaza.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fecha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="puesto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ahorro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="empresa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="objetoBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="coleccion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="persona.cpp">
@@ -68,10 +71,25 @@
     <ClCompile Include="administracion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="excepcion.cpp">
+    <ClCompile Include="empleado.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="empleado.cpp">
+    <ClCompile Include="contServicios.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contPlanilla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contPlaza.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="puesto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ahorro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

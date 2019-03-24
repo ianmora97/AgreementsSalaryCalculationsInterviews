@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D7811E5A-674C-4605-8DAE-0E501923C880}</ProjectGuid>
-    <RootNamespace>IproyectoProgramacion2</RootNamespace>
+    <ProjectGuid>{DAD4B877-13C0-40FF-8A50-4737B3FF55A8}</ProjectGuid>
+    <RootNamespace>pruebas</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,33 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="administracion.h" />
-    <ClInclude Include="ahorro.h" />
-    <ClInclude Include="contPlanilla.h" />
-    <ClInclude Include="contPlaza.h" />
-    <ClInclude Include="contrato.h" />
-    <ClInclude Include="contServicios.h" />
-    <ClInclude Include="depContabilidad.h" />
-    <ClInclude Include="empleado.h" />
-    <ClInclude Include="empresa.h" />
-    <ClInclude Include="fecha.h" />
-    <ClInclude Include="persona.h" />
-    <ClInclude Include="puesto.h" />
-    <ClInclude Include="tools.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="administracion.cpp" />
-    <ClCompile Include="ahorro.cpp" />
-    <ClCompile Include="contPlanilla.cpp" />
-    <ClCompile Include="contPlaza.cpp" />
-    <ClCompile Include="contrato.cpp" />
-    <ClCompile Include="contServicios.cpp" />
-    <ClCompile Include="depContabilidad.cpp" />
-    <ClCompile Include="empleado.cpp" />
-    <ClCompile Include="empresa.cpp" />
-    <ClCompile Include="fecha.cpp" />
-    <ClCompile Include="persona.cpp" />
-    <ClCompile Include="puesto.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
