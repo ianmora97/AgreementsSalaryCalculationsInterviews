@@ -15,7 +15,7 @@ int puesto::getFecha() const { return _fechaDePago; }
 
 string puesto::toString() const {
 	stringstream p;
-	p << "Puesto en que labora: " << getPuesto() << endl;
+	p << "Puesto laboral: " << getPuesto() << endl;
 	p << "Salario Base: " << getBase() << endl;
 	p << "Salario Neto: " << getNeto() << endl;
 	p << "Salario Bruto: " << getBruto() << endl;

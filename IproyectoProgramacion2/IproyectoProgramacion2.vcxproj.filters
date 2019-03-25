@@ -54,6 +54,12 @@
     <ClInclude Include="ahorro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="coleccionEmpleados.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="coleccionContratos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="empresa.cpp">
@@ -90,6 +96,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ahorro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="coleccionEmpleados.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="coleccionContratos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

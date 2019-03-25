@@ -5,6 +5,8 @@
 #define TAB '\t'
 #define FIN '\n'
 
+#define LLENO "Vector Lleno"
+
 #include <iostream>
 #include <sstream>
 #include <string>

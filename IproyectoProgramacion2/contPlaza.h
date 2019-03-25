@@ -19,11 +19,22 @@ public:
 	ahorro* getAhorro();
 	float getAguinaldo();
 	string getCategoria();
+	virtual puesto* getPuesto();
+	virtual string getPropietario();
+	virtual int getVacaciones();
+	virtual void setVacaciones(int v);
+	virtual fecha* getFechaIngreso();
+
+	virtual string toString();
 
 private:
 	ahorro* ahorro;
 	float aguinaldo;
 	string categoriaLaboral;
+	fecha* fechaIngreso;
+	fecha* fechaCese;
+	string propietario;
+	int vaciones;
 };
 
 #endif // !CONTPLAZA_H

@@ -4,23 +4,26 @@
 #include "tools.h"
 #include "administracion.h"
 #include "depContabilidad.h"
-#include "empleado.h"
+#include "coleccionEmpleados.h"
 
 using namespace std;
 
 class empresa { //Empresa Concepto Central
 public:
-	empresa(string, string, int);
+	empresa(string , string , int); //nombre,direccion,telefono
 	virtual ~empresa();
+
+	virtual void setRRHH(administracion*);
+	virtual void setContabilidad(depContabilidad*);
 
 	administracion* getRRHH() const;
 	depContabilidad* getContabilidad() const;
-	empleado* getEmpleado(int);
+	coleccionEmpleados* getColeccion();
 
 	virtual void changeAddress(); //cambio de direccion
 	virtual void changePhoneNumber(); //cambio de numero de telefono
 
-	virtual void ingresarEmpleado(empleado*);
+	virtual void ingresarEmpleado(contrato*,persona*);
 
 private:
 	string _name; //nombre de la empresa
@@ -29,8 +32,7 @@ private:
 
 	administracion* rrhh; //departamento de recursos humanos
 	depContabilidad* contabilidad; //departamento de contabilidad
-	empleado** empleados; //contenedor de empleados
-	int cant, tam;
+	coleccionEmpleados* empleados; //contenedor de empleados
 };
 
 #endif // !EMPRESA_H

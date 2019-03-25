@@ -41,6 +41,13 @@ string fecha::getCalendarioxMes() {
 	cout << endl;
 
 }
+string fecha::toString(){
+	stringstream s;
+	s << "Dia: " << _dia << endl;
+	s << "Mes: " << _mes << endl;
+	s << "Año: " << _anio << endl;
+	return s.str();
+}
 string fecha::nombreMes(int mes){
 	switch (mes){
 	case 1: return "Enero";

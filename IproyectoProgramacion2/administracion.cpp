@@ -1,36 +1,21 @@
 #include "administracion.h"
 
-administracion::administracion(int tam) : _tam(tam), _cant(0), _contratos(new contrato*[tam]){}
+administracion::administracion() : contratos(new coleccionContratos){}
 
 administracion::~administracion() {
-	for (int i = 0; i < getCant(); i++) { //los contratos se eliminan si se elimina la administracion
-		delete _contratos[i];
+	delete contratos;
+}
+
+void administracion::setFechaActual(fecha* f) { fechaActual = f; }
+coleccionContratos* administracion::getColeccion() { return contratos; }
+
+void administracion::calculaVacaciones(contrato* c) {
+	if ((fechaActual->getAnio() - c->getFechaIngreso()->getAnio()) == 1) {
+		if ((fechaActual->getMes() - c->getFechaIngreso()->getMes()) >= 0) {
+			c->setVacaciones(15);
+		}	
 	}
-	delete[] _contratos;
-	_tam = 0;
-	_cant = 0;
-}
-void administracion::eliminaUnContrato(string nombre, string apellidos) {
-
-}
-contrato * administracion::getContrato(int)
-{
-	return nullptr;
-}
-
-int administracion::getTam() const
-{
-	return 0;
-}
-
-int administracion::getCant()
-{
-	return 0;
-}
-
-string administracion::calculaVacaciones(contrato* c) {
-	stringstream p;
-	p << "El empleado " << c->getEmpleado()->getInfo()->getLastName() <<" "<< c->getEmpleado()->getInfo()->getName() << endl;
-	
-	return p.str();
+	else if ((fechaActual->getAnio() - c->getFechaIngreso()->getAnio()) > 1) {
+		c->setVacaciones( (fechaActual->getAnio() - c->getFechaIngreso()->getAnio()) * 15);
+	}	
 }

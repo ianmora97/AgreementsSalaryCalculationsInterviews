@@ -1,8 +1,10 @@
 #include "empleado.h"
 
-empleado::empleado(): _datos(new persona){}
-empleado::~empleado(){
-}
+empleado::empleado(){}
+empleado::empleado(contrato* c, persona* p): _datos(p), _contrato(c){}
+empleado::~empleado(){}
+
+contrato* empleado::getContrato() { return _contrato; }
 persona * empleado::getInfo() { return _datos; }
 
 string empleado::toString() const {

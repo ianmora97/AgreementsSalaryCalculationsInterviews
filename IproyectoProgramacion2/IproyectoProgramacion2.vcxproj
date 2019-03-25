@@ -117,6 +117,8 @@
   <ItemGroup>
     <ClInclude Include="administracion.h" />
     <ClInclude Include="ahorro.h" />
+    <ClInclude Include="coleccionContratos.h" />
+    <ClInclude Include="coleccionEmpleados.h" />
     <ClInclude Include="contPlanilla.h" />
     <ClInclude Include="contPlaza.h" />
     <ClInclude Include="contrato.h" />
@@ -132,6 +134,8 @@
   <ItemGroup>
     <ClCompile Include="administracion.cpp" />
     <ClCompile Include="ahorro.cpp" />
+    <ClCompile Include="coleccionContratos.cpp" />
+    <ClCompile Include="coleccionEmpleados.cpp" />
     <ClCompile Include="contPlanilla.cpp" />
     <ClCompile Include="contPlaza.cpp" />
     <ClCompile Include="contrato.cpp" />

@@ -5,28 +5,22 @@
 #define LA "Largo"
 #define INDEF "Indefinido"
 
-#define MAX 100
-#include "contrato.h"
+#include "coleccionContratos.h"
 
 using namespace std;
 
 class administracion { // Departamento de Recursos Humanos (RRHH)
 public:
-	administracion(int = MAX);
+	administracion();
 	virtual ~administracion();
 
-	virtual void eliminaUnContrato(string, string);
-
-	virtual contrato* getContrato(int);
-	virtual int getTam() const;
-	virtual int getCant();
-
-	virtual string calculaVacaciones(contrato*);
-	virtual void agregarContrato();
+	virtual void setFechaActual(fecha*);
+	virtual coleccionContratos* getColeccion();
+	virtual void calculaVacaciones(contrato*);
 
 private:
-	contrato** _contratos;
-	int _tam, _cant;
+	coleccionContratos* contratos;
+	fecha* fechaActual;
 };
 
 #endif // !ADMINISTRACION_H

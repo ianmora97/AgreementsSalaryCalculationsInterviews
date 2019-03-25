@@ -2,8 +2,7 @@
 
 empresa::empresa(string name, string address, int phone) 
 	: _name(name), _address(address), _phone(phone), rrhh(new administracion)
-	, contabilidad(new depContabilidad), empleados(new empleado*[100]) 
-	, tam(100), cant(0){}
+	, contabilidad(new depContabilidad), empleados(new coleccionEmpleados) {}
 empresa::~empresa(){
 	delete rrhh;
 	delete contabilidad;
@@ -14,9 +13,12 @@ empresa::~empresa(){
 	_phone = NULL;
 }
 
+void empresa::setRRHH(administracion * rrhh) { this->rrhh = rrhh; }
+void empresa::setContabilidad(depContabilidad * contabilidad) { this->contabilidad = contabilidad; }
+
 administracion * empresa::getRRHH() const { return rrhh; }
 depContabilidad * empresa::getContabilidad() const { return contabilidad; }
-empleado* empresa::getEmpleado(int i) { return empleados[i]; }
+coleccionEmpleados* empresa::getColeccion() { return empleados; }
 
 void empresa::changeAddress(){
 	string aux = VACIO;
@@ -42,9 +44,7 @@ void empresa::changePhoneNumber(){
 	_phone = aux;
 }
 
-void empresa::ingresarEmpleado(empleado *e){
-	empleado * aux = NULL;
-	if (cant < tam) {
-
-	}
+void empresa::ingresarEmpleado(contrato* c, persona* p){
+	empleado* e = new empleado(c,p);
+	empleados->agregar(e);
 }
