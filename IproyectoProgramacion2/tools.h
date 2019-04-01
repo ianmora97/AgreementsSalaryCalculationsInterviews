@@ -15,20 +15,20 @@
 #include <fstream>
 #include <iomanip>
 
-
 using namespace std;
 
-void color(int c) { SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),c);} //para mostrar colores
 
-string toUpper(string palabra) { //para poder pasar todo a mayusculas si es necesario
-	for (int i = 0; i < palabra.length(); i++) {
-		palabra[i] = toupper(palabra[i]);
-	}
-	return palabra;
+void gotoxy(int x, int y) {
+	HANDLE hcon;
+	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD dwPos;
+	dwPos.X = x;
+	dwPos.Y = y;
+	SetConsoleCursorPosition(hcon, dwPos);
 }
-
-int evaluarInt(int max, int min) {  //evalua un numero entero, por parametros recibe el rango
-	int valor = NULL;               //en el que se pueda evaluar un entero
+void color(int color) { SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); }
+int evaluarInt(int max, int min) {
+	int valor;
 	cout << " > ";
 	if (!(cin >> valor)) {
 		cin.clear();
@@ -43,23 +43,10 @@ int evaluarInt(int max, int min) {  //evalua un numero entero, por parametros re
 		else {
 			cin.clear();
 			cin.ignore(1024, '\n');
-			throw 2;
-				
+			throw 1;
 		}
 	}
 	return valor;
 }
-
-void pause() {
-	cin.ignore();
-	cin.get();
-}
-void cls() {
-	system("cls");
-}
-
-
-
-
 #endif // !TOOLS_H
 

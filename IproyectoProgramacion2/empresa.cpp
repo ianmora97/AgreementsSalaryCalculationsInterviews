@@ -1,11 +1,10 @@
 #include "empresa.h"
 
 empresa::empresa(string name, string address, int phone) 
-	: _name(name), _address(address), _phone(phone), rrhh(new administracion)
-	, contabilidad(new depContabilidad), empleados(new coleccionEmpleados) {}
+	: _name(name), _address(address), _phone(phone)
+	, empleados(new coleccionEmpleados) {}
 empresa::~empresa(){
-	delete rrhh;
-	delete contabilidad;
+
 	delete[] empleados; //se borra unicamente el contenedor, los empleados siguen existiendo pero no pertenecen a la empresa
 
 	_name = VACIO;
@@ -13,11 +12,6 @@ empresa::~empresa(){
 	_phone = NULL;
 }
 
-void empresa::setRRHH(administracion * rrhh) { this->rrhh = rrhh; }
-void empresa::setContabilidad(depContabilidad * contabilidad) { this->contabilidad = contabilidad; }
-
-administracion * empresa::getRRHH() const { return rrhh; }
-depContabilidad * empresa::getContabilidad() const { return contabilidad; }
 coleccionEmpleados* empresa::getColeccion() { return empleados; }
 
 void empresa::changeAddress(){

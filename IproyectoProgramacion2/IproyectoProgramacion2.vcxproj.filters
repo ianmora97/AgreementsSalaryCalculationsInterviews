@@ -30,9 +30,6 @@
     <ClInclude Include="tools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="administracion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="empleado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -49,9 +46,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="puesto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ahorro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="coleccionEmpleados.h">
@@ -74,9 +68,6 @@
     <ClCompile Include="depContabilidad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="administracion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="empleado.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,13 +86,13 @@
     <ClCompile Include="puesto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ahorro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="coleccionEmpleados.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="coleccionContratos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

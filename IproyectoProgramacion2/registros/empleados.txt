@@ -1,0 +1,11 @@
+Hola me llamo ian
+
+esto es un ejemplo
+
+
+ian mora rodriguez
+116890118
+salario neto: 474691144
+salario bruto: 45464654
+otra linea
+fin

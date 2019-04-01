@@ -31,10 +31,6 @@ float contPlaza::impuestoSobrelaRenta()
 	return 0.0f;
 }
 
-ahorro * contPlaza::getAhorro()
-{
-	return nullptr;
-}
 
 float contPlaza::getAguinaldo()
 {
@@ -44,4 +40,28 @@ float contPlaza::getAguinaldo()
 string contPlaza::getCategoria()
 {
 	return string();
+}
+
+puesto * contPlaza::getPuesto()
+{
+	return nullptr;
+}
+
+string contPlaza::getPropietario()
+{
+	return string();
+}
+
+int contPlaza::getVacaciones()
+{
+	return 0;
+}
+
+void contPlaza::setVacaciones(int v)
+{
+}
+
+fecha * contPlaza::getFechaIngreso()
+{
+	return nullptr;
 }

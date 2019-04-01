@@ -16,7 +16,6 @@ public:
 	float ahorroObligatorio();
 	float impuestoSobrelaRenta();
 
-	ahorro* getAhorro();
 	float getAguinaldo();
 	string getCategoria();
 	virtual puesto* getPuesto();
@@ -25,10 +24,8 @@ public:
 	virtual void setVacaciones(int v);
 	virtual fecha* getFechaIngreso();
 
-	virtual string toString();
-
 private:
-	ahorro* ahorro;
+
 	float aguinaldo;
 	string categoriaLaboral;
 	fecha* fechaIngreso;

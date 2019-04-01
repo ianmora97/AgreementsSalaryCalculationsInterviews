@@ -12,7 +12,7 @@ fecha * contServicios::getFechaIngreso(){return fechaIngreso;}
 
 string contServicios::toString(){
 	stringstream s;
-	s << "Puesto Laboral de [" << toUpper(propietario) << "]" << endl;
+	s << "Puesto Laboral de [" << propietario << "]" << endl;
 	s << "\t" << _puesto->toString() << endl;
 	s << "Vacaciones ganadas: " << vacaciones << endl;
 	s << "Fecha de ingreso " << endl;

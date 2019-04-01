@@ -22,7 +22,7 @@ void fecha::calendario(int anio){
 		cout << endl;
 	}
 }
-string fecha::getCalendarioxMes() {
+void fecha::getCalendarioxMes() {
 	cout << "Mes: " << nombreMes(_mes) << endl;
 	cout << " Dom Lun Mar Mie Jue Vie Sab" << endl;
 	int e = espacio(_anio, _mes);
@@ -39,7 +39,6 @@ string fecha::getCalendarioxMes() {
 	}
 
 	cout << endl;
-
 }
 string fecha::toString(){
 	stringstream s;

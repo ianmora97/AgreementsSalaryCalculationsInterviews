@@ -14,12 +14,12 @@ public:
 	virtual float ahorroObligatorio();
 	virtual float impuestoSobrelaRenta();
 
-	virtual void agregarAhorro(ahorro* a);
+
 
 	virtual void setFechaCese(fecha* f);
 	virtual void setVacaciones(int v);
 
-	virtual ahorro* getAhorro();
+
 	virtual float getAguinaldo();
 	virtual puesto* getPuesto();
 	virtual string getPropietario();
@@ -29,7 +29,7 @@ public:
 	virtual string toString();
 
 private:
-	ahorro** ahorros;
+
 	int cant;
 	puesto* _puesto;
 	int vacaciones;
