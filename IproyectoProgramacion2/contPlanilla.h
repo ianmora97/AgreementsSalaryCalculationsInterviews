@@ -1,11 +1,12 @@
 #ifndef CONTPLANILLA_H
 #define CONTPLANILLA_H
 
-#include "contrato.h"
 
+#include "fecha.h"
+#include "puesto.h"
 using namespace std;
 
-class contPlanilla : public contrato {
+class contPlanilla{
 public:
 	contPlanilla(fecha*,string ,float,puesto*);
 	virtual ~contPlanilla();
@@ -13,8 +14,6 @@ public:
 	virtual float cargasSociales();
 	virtual float ahorroObligatorio();
 	virtual float impuestoSobrelaRenta();
-
-
 
 	virtual void setFechaCese(fecha* f);
 	virtual void setVacaciones(int v);

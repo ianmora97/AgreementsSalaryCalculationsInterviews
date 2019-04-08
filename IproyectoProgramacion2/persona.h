@@ -16,6 +16,12 @@ public:
 	string getAddress() const;
 	string getPhone() const;
 
+	void setName(string s);
+	void setLastName(string s);
+	void setBirth(string s);
+	void setAdd(string s);
+	void setPhone(string s);
+
 	virtual string toString() const;
 
 private:

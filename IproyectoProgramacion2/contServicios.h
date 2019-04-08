@@ -2,6 +2,7 @@
 #define CONTSERVICIOS_H
 
 #include "contrato.h"
+
 using namespace std;
 
 class contServicios : public contrato {
@@ -9,10 +10,9 @@ public:
 	contServicios(fecha*, string, puesto*);
 	virtual ~contServicios();
 
+	virtual void setFechaCese(fecha*);
 	virtual puesto* getPuesto();
 	virtual string getPropietario();
-	virtual int getVacaciones();
-	virtual void setVacaciones(int v);
 	virtual fecha* getFechaIngreso();
 
 	virtual string toString();

@@ -19,6 +19,12 @@ string persona::getBirth() const { return _birth; }
 string persona::getAddress() const { return _address; }
 string persona::getPhone() const { return _phone; }
 
+void persona::setName(string s) { _name = s; }
+void persona::setLastName(string s) { _lastName = s; }
+void persona::setBirth(string s) { _birth = s; }
+void persona::setAdd(string s) { _address = s; }
+void persona::setPhone(string s) { _phone = s; }
+
 string persona::toString() const {
 	stringstream p;
 	p << "[ " << getName() 

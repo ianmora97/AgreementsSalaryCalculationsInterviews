@@ -3,7 +3,9 @@
 
 #include "tools.h"
 #include "contrato.h"
-
+#include "contPlaza.h"
+#include "contPlanilla.h"
+#include "contServicios.h"
 using namespace std;
 
 class coleccionContratos{

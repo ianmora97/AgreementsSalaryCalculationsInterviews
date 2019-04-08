@@ -120,6 +120,7 @@
     <ClInclude Include="contPlanilla.h" />
     <ClInclude Include="contPlaza.h" />
     <ClInclude Include="contrato.h" />
+    <ClInclude Include="control.h" />
     <ClInclude Include="contServicios.h" />
     <ClInclude Include="depContabilidad.h" />
     <ClInclude Include="empleado.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="contPlanilla.cpp" />
     <ClCompile Include="contPlaza.cpp" />
     <ClCompile Include="contrato.cpp" />
+    <ClCompile Include="control.cpp" />
     <ClCompile Include="contServicios.cpp" />
     <ClCompile Include="depContabilidad.cpp" />
     <ClCompile Include="empleado.cpp" />
@@ -143,6 +145,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="persona.cpp" />
     <ClCompile Include="puesto.cpp" />
+    <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

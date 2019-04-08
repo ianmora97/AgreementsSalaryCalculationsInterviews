@@ -14,39 +14,13 @@
 #include <Windows.h>
 #include <fstream>
 #include <iomanip>
-
 using namespace std;
 
 
-void gotoxy(int x, int y) {
-	HANDLE hcon;
-	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD dwPos;
-	dwPos.X = x;
-	dwPos.Y = y;
-	SetConsoleCursorPosition(hcon, dwPos);
-}
-void color(int color) { SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); }
-int evaluarInt(int max, int min) {
-	int valor;
-	cout << " > ";
-	if (!(cin >> valor)) {
-		cin.clear();
-		cin.ignore(1024, '\n');
-		throw 1;
-	}
-	else {
-		if ((valor >= min) && (valor <= max)) {
-			cin.clear();
-			cin.ignore(1024, '\n');	
-		}
-		else {
-			cin.clear();
-			cin.ignore(1024, '\n');
-			throw 1;
-		}
-	}
-	return valor;
-}
+void gotoxy(int x, int y);
+void color(int color);
+int evaluarInt(int max, int min);
+void pause();
+void cls();
 #endif // !TOOLS_H
 

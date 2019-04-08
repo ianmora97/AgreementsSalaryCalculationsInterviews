@@ -1,23 +1,24 @@
 #ifndef CONTPLAZA_H
 #define CONTPLAZA_H
 
-#include "contrato.h"
-
+#include "fecha.h"
+#include "puesto.h"
 using namespace std;
 
-class contPlaza : public contrato {
+class contPlaza {
 public:
 	contPlaza();
 	virtual ~contPlaza();
 
 	virtual string toString();
 
-	float cargasSociales();
-	float ahorroObligatorio();
-	float impuestoSobrelaRenta();
+	virtual float cargasSociales();
+	virtual float ahorroObligatorio();
+	virtual float impuestoSobrelaRenta();
 
-	float getAguinaldo();
-	string getCategoria();
+	virtual float getAguinaldo();
+	virtual string getCategoria();
+
 	virtual puesto* getPuesto();
 	virtual string getPropietario();
 	virtual int getVacaciones();

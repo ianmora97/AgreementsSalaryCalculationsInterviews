@@ -16,8 +16,12 @@ public:
 
 	virtual void changeAddress(); //cambio de direccion
 	virtual void changePhoneNumber(); //cambio de numero de telefono
+	virtual void ingresarEmpleado(contrato*, persona*);
+	virtual string getDatos();
+	virtual string verRegistroEmpleados(ifstream&);
 
-	virtual void ingresarEmpleado(contrato*,persona*);
+	virtual string imprimeDatosEmpleados();
+	virtual void cambiaDatos(int n);
 
 private:
 	string _name; //nombre de la empresa
