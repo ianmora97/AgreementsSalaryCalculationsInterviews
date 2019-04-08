@@ -1,30 +1,26 @@
 #ifndef CONTPLANILLA_H
 #define CONTPLANILLA_H
 
+#include "contrato.h"
 
-#include "fecha.h"
-#include "puesto.h"
 using namespace std;
 
-class contPlanilla{
+class contPlanilla : public contrato{
 public:
-	contPlanilla(fecha*,string ,float,puesto*);
+	contPlanilla(fecha*,float,puesto*);
 	virtual ~contPlanilla();
 
 	virtual float cargasSociales();
 	virtual float ahorroObligatorio();
 	virtual float impuestoSobrelaRenta();
-
-	virtual void setFechaCese(fecha* f);
 	virtual void setVacaciones(int v);
-
-
 	virtual float getAguinaldo();
-	virtual puesto* getPuesto();
-	virtual string getPropietario();
 	virtual int getVacaciones();
-	virtual fecha* getFechaIngreso();
 
+	//metodos virtuales puros
+	virtual puesto* getPuesto();
+	virtual void setFechaCese(fecha* f);
+	virtual fecha* getFechaIngreso();
 	virtual string toString();
 
 private:
@@ -35,7 +31,6 @@ private:
 	float aguinaldo;
 	fecha* fechaIngreso;
 	fecha* fechaCese;
-	string propietario;
 };
 
 #endif // !CONTPLANILLA_H

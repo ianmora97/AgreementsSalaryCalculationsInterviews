@@ -3,7 +3,7 @@
 
 empresa::empresa(string name, string address, int phone) 
 	: _name(name), _address(address), _phone(phone)
-	, empleados(new coleccionEmpleados) {}
+	, empleados(new coleccionEmpleados), puestos(new coleccionPuestos) {}
 empresa::~empresa(){
 
 	delete[] empleados; //se borra unicamente el contenedor, los empleados siguen existiendo pero no pertenecen a la empresa
@@ -14,6 +14,16 @@ empresa::~empresa(){
 }
 
 coleccionEmpleados* empresa::getColeccion() { return empleados; }
+coleccionPuestos * empresa::getPuestos(){return puestos;}
+
+string empresa::mostrarPuestos(){
+	stringstream s;
+	s << "Puestos:\n";
+	for (int i = 0; i < puestos->getCant(); i++) {
+		s << "#" << i + 1 << puestos->getPuesto(i)->getPuesto() << "\n";
+	}
+	return s.str();
+}
 
 void empresa::changeAddress(){
 	string aux = VACIO;
@@ -68,14 +78,15 @@ string empresa::verRegistroEmpleados(ifstream& archivo) {
 }
 string empresa::imprimeDatosEmpleados() {
 	stringstream s;
-	for (int i = 0; i < getColeccion()->getCant(); i++) {
-		s<<"#"<<i+1<<getColeccion()->getEmpleado(i)->getInfo()->toString()<<"\n";
-	}
+	s << "Empleados: \n";
+	s << empleados->toString() << "\n";
 	return s.str();
 }
 
 void empresa::cambiaDatos(int n) {
 	string cambio = "indef";
+	fecha* f;
+	int dia, mes, anio;
 	cout << "Digite el numero del empleado que quiere cambiar\n";
 	cout << imprimeDatosEmpleados() << "\n";
 	int e;
@@ -97,9 +108,12 @@ void empresa::cambiaDatos(int n) {
 		cout << empleados->getEmpleado(e - 1)->getInfo()->toString() << "\n";
 		break;
 	case 3:
-		cout << "Anio Nacimiento > ";
-		getline(cin, cambio);
-		empleados->getEmpleado(e - 1)->getInfo()->setBirth(cambio);
+		cout << "Anio Nacimiento: ";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
+		f = new fecha(dia,mes,anio);
+		empleados->getEmpleado(e - 1)->getInfo()->setBirth(f);
 		cout << "\n";
 		cout << empleados->getEmpleado(e - 1)->getInfo()->toString() << "\n";
 		break;
@@ -120,4 +134,146 @@ void empresa::cambiaDatos(int n) {
 	}
 	pause();
 	cambio = "indef";
+}
+void empresa::contratarEmpleado(int n) {
+	empleado* e = new empleado;
+	puesto* p;
+	fecha* ingreso;
+	fecha* anioNa;
+	persona* pers;
+	contrato* cont;
+
+	string nombre, apellido, direccion, telefono, id;
+
+	int dia, mes, anio;
+	if (n == 1) {
+		cls();
+		cout << "Contrato por Servicios\n\n";
+		cout << "Digite los siguientes datos del empleado:\n";
+		cout << "Nombre > ";
+		getline(cin, nombre);
+		cout << "Apellidos > ";
+		getline(cin,apellido);
+		cout << "Direccion de Casa > ";
+		getline(cin,direccion);
+		cout << "Telefono > ";
+		getline(cin,telefono);
+		cout << "Identificacion > ";
+		getline(cin,id);
+		cout << "Fecha de nacimiento:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31,1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12,1);
+		cout << "Anio(1920-2001) > "; anio = evaluarInt(2001,1920);
+		anioNa = new fecha(dia,mes,anio);
+		pers = new persona(nombre,id,apellido,anioNa,direccion,telefono);
+		cout << "\nNombre del Puesto: ";
+		cout<<mostrarPuestos()<<"\n";
+		int oPuesto;
+		oPuesto = evaluarInt(puestos->getCant(), 1);
+		p = new puesto(puestos->getPuesto(oPuesto - 1));
+		cout << "Digite una fecha de pago para el puesto\n";
+		cout << "(1) Quincenal - 15 dias\n(2) Mensual - 30 dias\n > ";
+		int oFe;
+		oFe = evaluarInt(2, 1);
+		if (oFe == 1) {
+			p->setFecha(15);
+		}
+		else {
+			p->setFecha(30);
+		}
+		cout << "Digite la fecha de Ingreso del empleado:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
+		ingreso = new fecha(dia, mes, anio);
+		cont = new contServicios(ingreso, p);
+		e = new empleado(cont,pers);
+	}
+	else if (n == 2) {
+		cls();
+		cout << "Contrato por Planilla\n\n";
+		cout << "Digite los siguientes datos del empleado:\n";
+		cout << "Nombre > ";
+		getline(cin, nombre);
+		cout << "Apellidos > ";
+		getline(cin, apellido);
+		cout << "Direccion de Casa > ";
+		getline(cin, direccion);
+		cout << "Telefono > ";
+		getline(cin, telefono);
+		cout << "Identificacion > ";
+		getline(cin, id);
+		cout << "Fecha de nacimiento:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1920-2001) > "; anio = evaluarInt(2001, 1920);
+		anioNa = new fecha(dia, mes, anio);
+		pers = new persona(nombre, id, apellido, anioNa, direccion, telefono);
+		cout << "\nNombre del Puesto: ";
+		cout << mostrarPuestos() << "\n";
+		int oPuesto;
+		oPuesto = evaluarInt(puestos->getCant(), 1);
+		p = new puesto(puestos->getPuesto(oPuesto - 1));
+		cout << "Digite una fecha de pago para el puesto\n";
+		cout << "(1) Quincenal - 15 dias\n(2) Mensual - 30 dias\n > ";
+		int oFe;
+		oFe = evaluarInt(2, 1);
+		if (oFe == 1) {
+			p->setFecha(15);
+		}
+		else {
+			p->setFecha(30);
+		}
+		cout << "Digite la fecha de Ingreso del empleado:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
+		ingreso = new fecha(dia, mes, anio);
+		cont = new contServicios(ingreso, p);
+		e = new empleado(cont, pers);
+		empleados->agregar(e);
+	}
+	else if (n == 3) {
+		cls();
+		cout << "Contrato por Servicios\n\n";
+		cout << "Digite los siguientes datos del empleado:\n";
+		cout << "Nombre > ";
+		getline(cin, nombre);
+		cout << "Apellidos > ";
+		getline(cin, apellido);
+		cout << "Direccion de Casa > ";
+		getline(cin, direccion);
+		cout << "Telefono > ";
+		getline(cin, telefono);
+		cout << "Identificacion > ";
+		getline(cin, id);
+		cout << "Fecha de nacimiento:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1920-2001) > "; anio = evaluarInt(2001, 1920);
+		anioNa = new fecha(dia, mes, anio);
+		pers = new persona(nombre, id, apellido, anioNa, direccion, telefono);
+		cout << "\nNombre del Puesto: ";
+		cout << mostrarPuestos() << "\n";
+		int oPuesto;
+		oPuesto = evaluarInt(puestos->getCant(), 1);
+		p = new puesto(puestos->getPuesto(oPuesto - 1));
+		cout << "Digite una fecha de pago para el puesto\n";
+		cout << "(1) Quincenal - 15 dias\n(2) Mensual - 30 dias\n > ";
+		int oFe;
+		oFe = evaluarInt(2, 1);
+		if (oFe == 1) {
+			p->setFecha(15);
+		}
+		else {
+			p->setFecha(30);
+		}
+		cout << "Digite la fecha de Ingreso del empleado:\n";
+		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
+		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
+		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
+		ingreso = new fecha(dia, mes, anio);
+		cont = new contPlanilla(ingreso,16552, p); //meter vaciones como parametro
+		e = new empleado(cont, pers);
+	}
 }

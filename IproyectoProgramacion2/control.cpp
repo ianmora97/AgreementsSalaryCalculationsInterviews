@@ -6,10 +6,14 @@ control::~control(){}
 void control::opciones(){
 	empresa* _empresa = new empresa("Smart-System","Zona Franca Metropolitana",22002200);
 	
-	persona* p1 = new persona("Ian","116890118","Mora Rodriguez","03/10/97","Hatillo","84018895");
+	fecha* af = new fecha(3,10,1997);
+	persona* p1 = new persona("Ian","116890118","Mora Rodriguez",af,"Hatillo","84018895");
 	fecha* f1 = new fecha(3,10,1997);
 	puesto* pu1 = new puesto(41000, "Publicidad", 5);
-	contrato* c1 = new contServicios(f1,"Ian", pu1);
+	puesto* pu2 = new puesto(100000, "Diseniador", 4);
+	_empresa->getPuestos()->agregar(pu1);
+	_empresa->getPuestos()->agregar(pu2);
+	contrato* c1 = new contServicios(f1, pu1);
 	empleado* e1 = new empleado(c1,p1);
 	_empresa->getColeccion()->agregar(e1);
 
@@ -108,26 +112,19 @@ void control::opciones(){
 				else if (opcRRHH == 3) {
 					cls();
 					cout << "Lista de Empleados en la Empresa\n";
-					cout<<_empresa->imprimeDatosEmpleados()<<"\n";
+					cout<<_empresa->getColeccion()->toString()<<"\n";
 					pause();
 					cls();
 				}
 				else if (opcRRHH == 4) {
 					cls();
-					cout << "Contratar un Empleado\n";
-					empleado* e;
-					puesto* p;
-					fecha* ingreso;
-					fecha* anioNa;
-					persona* pers;
-
+					cout << "Contratar un Empleado\n";	
 					cout << "Que tipo de contratacion desea utilizar?\n";
-					cout << "(1) Indefinido\n(2) Plaza\n(3) Planilla\n > ";
+					cout << "(1) Indefinido\n(2) Plaza\n(3) Planilla\n(0) Cancelar > ";
 					int tipo;
-					if (tipo == 1) {
-						cls();
-						cout << "Contrato Indefinido\n";
-
+					tipo = evaluarInt(3, 0);
+					if (tipo > 0 && tipo <= 3) {
+						_empresa->contratarEmpleado(tipo);
 					}
 				}
 			}

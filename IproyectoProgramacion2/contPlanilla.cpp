@@ -1,15 +1,13 @@
 #include "contPlanilla.h"
 
-contPlanilla::contPlanilla(fecha* in, string pr, float ag, puesto* p)
-	: fechaIngreso(in), propietario(pr), aguinaldo(ag), fechaCese(NULL)
+contPlanilla::contPlanilla(fecha* in, float ag, puesto* p)
+	: fechaIngreso(in), aguinaldo(ag), fechaCese(NULL)
 	, _puesto(p), vacaciones(0), cant(0) {}
-contPlanilla::~contPlanilla(){
-
-}
+contPlanilla::~contPlanilla(){}
 
 string contPlanilla::toString(){
 	stringstream s;
-	s << "Puesto Laboral de [" << propietario << "]" << endl;
+	s << "Puesto Laboral: " << endl;
 	s << "\t" << _puesto->toString() << endl;
 	s << "Aguinaldo: " << aguinaldo << endl;
 	s << "Vacaciones ganadas: " << vacaciones << endl;
@@ -48,11 +46,6 @@ float contPlanilla::getAguinaldo()
 puesto * contPlanilla::getPuesto()
 {
 	return nullptr;
-}
-
-string contPlanilla::getPropietario()
-{
-	return string();
 }
 
 int contPlanilla::getVacaciones()

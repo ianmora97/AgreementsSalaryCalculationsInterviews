@@ -8,10 +8,12 @@ using namespace std;
 class puesto{
 public:
 	puesto(float,string,int);
+	puesto(const puesto*);
 	virtual ~puesto();
 
 	virtual void setBruto(float);
 	virtual void setNeto(float);
+	virtual void setFecha(int);
 
 	virtual string getPuesto() const;
 	virtual float getBruto() const;

@@ -26,11 +26,7 @@ void coleccionContratos::agregar(contrato *c){
 
 void coleccionContratos::eliminaUno(string p){
 	for (int i = 0; i < cant; i++) {
-		if (contratos[i]->getPropietario() == p) {
-			contratos[i] = contratos[cant - 1];
-			delete contratos[cant - 1];
-			cant--;
-		}
+	
 	}
 }
 

@@ -4,6 +4,7 @@
 #include "tools.h"
 #include "coleccionContratos.h"
 #include "coleccionEmpleados.h"
+#include "coleccionPuestos.h"
 
 using namespace std;
 
@@ -12,7 +13,9 @@ public:
 	empresa(string , string , int); //nombre,direccion,telefono
 	virtual ~empresa();
 
-	coleccionEmpleados* getColeccion();
+	virtual coleccionEmpleados* getColeccion();
+	virtual coleccionPuestos* getPuestos();
+	virtual string mostrarPuestos();
 
 	virtual void changeAddress(); //cambio de direccion
 	virtual void changePhoneNumber(); //cambio de numero de telefono
@@ -22,6 +25,7 @@ public:
 
 	virtual string imprimeDatosEmpleados();
 	virtual void cambiaDatos(int n);
+	virtual void contratarEmpleado(int n);
 
 private:
 	string _name; //nombre de la empresa
@@ -29,6 +33,7 @@ private:
 	int _phone; //numero de telefono de la empresa
 
 	coleccionEmpleados* empleados; //contenedor de empleados
+	coleccionPuestos* puestos; //contenedor de puestos
 };
 
 #endif // !EMPRESA_H

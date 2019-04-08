@@ -16,7 +16,6 @@ public:
 	virtual void setFechaCese(fecha*f) = 0;
 
 	virtual puesto* getPuesto() = 0;
-	virtual string getPropietario() = 0;
 	virtual fecha* getFechaIngreso() = 0;
 
 	virtual string toString() = 0;

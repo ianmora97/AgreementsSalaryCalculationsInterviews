@@ -2,23 +2,24 @@
 #define PERSONA_H
 
 #include "tools.h"
+#include "fecha.h"
 
 class persona { //es la clase empleado
 public:
 	persona();
-	persona(string, string, string, string, string, string);
+	persona(string, string, string, fecha*, string, string);
 	virtual ~persona();
 
 	string getName() const;
 	string getId() const;
 	string getLastName() const;
-	string getBirth() const;
+	fecha* getBirth() const;
 	string getAddress() const;
 	string getPhone() const;
 
 	void setName(string s);
 	void setLastName(string s);
-	void setBirth(string s);
+	void setBirth(fecha* s);
 	void setAdd(string s);
 	void setPhone(string s);
 
@@ -28,7 +29,7 @@ private:
 	string _name;
 	string _id;
 	string _lastName;
-	string _birth;
+	fecha* _birth;
 	string _address;
 	string _phone;
 };
