@@ -25,7 +25,6 @@ public:
 
 private:
 
-	int cant;
 	puesto* _puesto;
 	int vacaciones;
 	float aguinaldo;

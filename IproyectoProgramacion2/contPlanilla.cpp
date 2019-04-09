@@ -2,7 +2,7 @@
 
 contPlanilla::contPlanilla(fecha* in, float ag, puesto* p)
 	: fechaIngreso(in), aguinaldo(ag), fechaCese(NULL)
-	, _puesto(p), vacaciones(0), cant(0) {}
+	, _puesto(p), vacaciones(0) {}
 contPlanilla::~contPlanilla(){}
 
 string contPlanilla::toString(){

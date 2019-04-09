@@ -25,7 +25,7 @@ public:
 
 	virtual string imprimeDatosEmpleados();
 	virtual void cambiaDatos(int n);
-	virtual void contratarEmpleado(int n);
+	virtual void contratarEmpleado(int n, ofstream&);
 
 private:
 	string _name; //nombre de la empresa

@@ -31,7 +31,7 @@ string persona::toString() const {
 	p << "[ " << getName() 
 	  << ", " << getLastName() 
 	  << ", " << getId() 
-	  << ", " << getBirth() 
+	  << ", " << getBirth()->getDia()<<"/"<<getBirth()->getMes()<<"/"<<getBirth()->getAnio()
 	  << ", " << getAddress() 
 	  << ", " << getPhone() << " ]" << FIN;
 	return p.str();

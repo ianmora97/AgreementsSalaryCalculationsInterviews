@@ -2,7 +2,6 @@
 
 control::control(){}
 control::~control(){}
-
 void control::opciones(){
 	empresa* _empresa = new empresa("Smart-System","Zona Franca Metropolitana",22002200);
 	
@@ -27,13 +26,14 @@ void control::opciones(){
 			//salida();
 		}
 		else if (opc == 1) {
+
 			cls();
 			bool cicloDatos = true;
 			while (cicloDatos) {
 				cls();
 				cout << "Datos de la empresa:\n";
 				cout << "(1) Actualizar Telefono\n(2) Actualizar Direccion \n(3) Mostrar Datos\n(4) Volver al Menu\n";
-				int opcAct = evaluarInt(3, 1);
+				int opcAct = evaluarwInt(3, 1);
 				if (opcAct == 0) {
 					cicloDatos = false;
 					cls();
@@ -123,16 +123,20 @@ void control::opciones(){
 					cout << "(1) Indefinido\n(2) Plaza\n(3) Planilla\n(0) Cancelar > ";
 					int tipo;
 					tipo = evaluarInt(3, 0);
+					ofstream archivo;
 					if (tipo > 0 && tipo <= 3) {
-						_empresa->contratarEmpleado(tipo);
+						archivo.open("registros/registroEmpleados.txt", ios::out, ios::app);
+						_empresa->contratarEmpleado(tipo, archivo);
+						archivo.close();
+						
 					}
+					pause();
+					cls();
 				}
 			}
 		}
 	}
 }
-
-
 int control::menu(){
 	int opc;
 	opc = evaluarInt(3,0);

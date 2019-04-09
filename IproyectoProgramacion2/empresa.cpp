@@ -135,14 +135,14 @@ void empresa::cambiaDatos(int n) {
 	pause();
 	cambio = "indef";
 }
-void empresa::contratarEmpleado(int n) {
+void empresa::contratarEmpleado(int n, ofstream& archivo) {
 	empleado* e = new empleado;
 	puesto* p;
 	fecha* ingreso;
 	fecha* anioNa;
 	persona* pers;
 	contrato* cont;
-
+	ahorro* ah;
 	string nombre, apellido, direccion, telefono, id;
 
 	int dia, mes, anio;
@@ -229,13 +229,12 @@ void empresa::contratarEmpleado(int n) {
 		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
 		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
 		ingreso = new fecha(dia, mes, anio);
-		cont = new contServicios(ingreso, p);
+		cont = new contPlanilla(ingreso, 0, p);
 		e = new empleado(cont, pers);
-		empleados->agregar(e);
 	}
 	else if (n == 3) {
 		cls();
-		cout << "Contrato por Servicios\n\n";
+		cout << "Contrato por Plaza\n\n";
 		cout << "Digite los siguientes datos del empleado:\n";
 		cout << "Nombre > ";
 		getline(cin, nombre);
@@ -273,7 +272,21 @@ void empresa::contratarEmpleado(int n) {
 		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
 		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
 		ingreso = new fecha(dia, mes, anio);
-		cont = new contPlanilla(ingreso,16552, p); //meter vaciones como parametro
+		cout << "Digite su ahorro:\n";
+		int m, plazo;
+		float a;
+		cout << "Dinero : "; cin >> a;
+		cout << "Plazo  : "; cin >> plazo;
+		cout << "Ahorro por: "; cin >> m;
+		ah = new ahorro(a,plazo,m);
+		cont = new contPlaza(ingreso,p,ah);
 		e = new empleado(cont, pers);
 	}
+	if (archivo.is_open()) {
+		archivo << e->toString() << "\n";
+	}
+	else {
+		cerr << "El archivo no se pudo abrir";
+	}
+	empleados->agregar(e);
 }
