@@ -12,6 +12,7 @@ public:
 	empleado();
 	virtual ~empleado();
 
+	void setContrato(contrato*);
 	contrato* getContrato();
 	persona* getInfo();
 	virtual string toString() const;

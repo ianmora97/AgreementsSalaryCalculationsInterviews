@@ -40,11 +40,14 @@ void fecha::getCalendarioxMes() {
 
 	cout << endl;
 }
-string fecha::toString(){
+string fecha::toString(bool t){
 	stringstream s;
-	s << "Dia: " << _dia << endl;
-	s << "Mes: " << _mes << endl;
-	s << "Año: " << _anio << endl;
+	if (t == true) {
+		s << _dia << "/" << _mes << "/" << _anio << "\t";
+	}
+	else {
+		s <<"Dia: "<<_dia << " Mes: " << _mes << " Anio: " << _anio;
+	}
 	return s.str();
 }
 string fecha::nombreMes(int mes){
@@ -100,9 +103,9 @@ int fecha::espacio(int anio, int mes){
 	return d;
 }
 
-int fecha::getAnio() const { return _anio; }
-int fecha::getMes() const { return _mes; }
-int fecha::getDia() const { return _dia; }
+int fecha::getAnio() { return _anio; }
+int fecha::getMes() { return _mes; }
+int fecha::getDia() { return _dia; }
 
 void fecha::setAnio(int anio) { _anio = anio; }
 void fecha::setMes(int mes) { _mes = mes; }

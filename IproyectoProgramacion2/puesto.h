@@ -9,11 +9,15 @@ class puesto{
 public:
 	puesto(float,string,int);
 	puesto(const puesto*);
+	puesto* operator=(const puesto*);
 	virtual ~puesto();
 
 	virtual void setBruto(float);
 	virtual void setNeto(float);
 	virtual void setFecha(int);
+	virtual void setNombre(string n);
+
+	void setBase(float b);
 
 	virtual string getPuesto() const;
 	virtual float getBruto() const;
@@ -21,7 +25,7 @@ public:
 	virtual float getBase() const;
 	virtual int getFecha() const;
 
-	virtual string toString() const;
+	virtual string toString(bool) const;
 private:
 	string _nombrePuesto;
 	float _salarioBruto;   // lo que se gana con beneficios, salario base + beneficios

@@ -23,7 +23,7 @@ public:
 	void setAdd(string s);
 	void setPhone(string s);
 
-	virtual string toString() const;
+	virtual string toString();
 
 private:
 	string _name;

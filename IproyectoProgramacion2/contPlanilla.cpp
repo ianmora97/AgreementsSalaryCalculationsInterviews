@@ -1,67 +1,57 @@
 #include "contPlanilla.h"
 
-contPlanilla::contPlanilla(fecha* in, float ag, puesto* p)
-	: fechaIngreso(in), aguinaldo(ag), fechaCese(NULL)
+contPlanilla::contPlanilla(fecha* in, puesto* p)
+	: fechaIngreso(in), aguinaldo(0), fechaCese(NULL)
 	, _puesto(p), vacaciones(0) {}
+contPlanilla::contPlanilla(contrato * c){
+	fechaIngreso = c->getFechaIngreso();
+	fechaCese = c->getFechaCese();
+	_puesto = c->getPuesto();
+	vacaciones = 0;
+}
 contPlanilla::~contPlanilla(){}
 
 string contPlanilla::toString(){
 	stringstream s;
 	s << "Puesto Laboral: " << endl;
-	s << "\t" << _puesto->toString() << endl;
+	s << "\t" << _puesto->toString(true) << endl;
 	s << "Aguinaldo: " << aguinaldo << endl;
 	s << "Vacaciones ganadas: " << vacaciones << endl;
 	s << "Fecha de ingreso " << endl;
-	s << "\t" << fechaIngreso->toString() << endl;
+	s << "\t" << fechaIngreso->toString(true) << endl;
 	s << "Fecha de Cese " << endl;
 	if (fechaCese == NULL) {
 		s << "\t <<Actualmente Laborando>>" << endl;
 	}
 	else {
-		s << "\t" << fechaCese->toString() << endl;
+		s << "\t" << fechaCese->toString(true) << endl;
 	}
 	return s.str();
 }
 
-float contPlanilla::cargasSociales()
-{
-	return 0.0f;
+float contPlanilla::getAguinaldo(){
+	return aguinaldo;
 }
 
-float contPlanilla::ahorroObligatorio()
-{
-	return 0.0f;
+puesto * contPlanilla::getPuesto(){
+	return _puesto;
 }
 
-float contPlanilla::impuestoSobrelaRenta()
-{
-	return 0.0f;
+int contPlanilla::getVacaciones(){
+	return vacaciones;
 }
 
-float contPlanilla::getAguinaldo()
-{
-	return 0.0f;
+void contPlanilla::setFechaCese(fecha * f){
+	fechaCese = f;
 }
 
-puesto * contPlanilla::getPuesto()
-{
-	return nullptr;
+void contPlanilla::setVacaciones(int v){
+	vacaciones = v;
 }
 
-int contPlanilla::getVacaciones()
-{
-	return 0;
+fecha * contPlanilla::getFechaIngreso(){
+	return fechaIngreso;
 }
-
-void contPlanilla::setFechaCese(fecha * f)
-{
-}
-
-void contPlanilla::setVacaciones(int v)
-{
-}
-
-fecha * contPlanilla::getFechaIngreso()
-{
-	return nullptr;
+fecha* contPlanilla::getFechaCese() const {
+	return fechaCese;
 }

@@ -13,13 +13,12 @@ void color(int color) { SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
 
 int evaluarInt(int max, int min) {
 	int valor;
-	cout << " > ";
 	bool ciclo = true;
 	while (ciclo) {
 		if (!(cin >> valor)) {
 			cin.clear();
 			cin.ignore(1024, '\n');
-			throw 1;
+			
 		}
 		else {
 			if ((valor >= min) && (valor <= max)) {
@@ -30,7 +29,7 @@ int evaluarInt(int max, int min) {
 			else {
 				cin.clear();
 				cin.ignore(1024, '\n');
-				throw 1;
+				
 			}
 		}
 	}

@@ -28,19 +28,26 @@ class contPlaza : public contrato {
 public:
 	contPlaza();
 	contPlaza(fecha*,puesto*,ahorro*);
+	contPlaza(contrato*);
 	virtual ~contPlaza();
+
+	virtual int getCargasSociales() const;
+	virtual int getImpuestos();
 
 	virtual string toString();
 
 	virtual float getAguinaldo();
 	virtual string getCategoria();
 
+	virtual float calculoSobrelaRenta();
+
 	virtual puesto* getPuesto();
 	virtual int getVacaciones();
 	virtual void setVacaciones(int v);
 	virtual fecha* getFechaIngreso();
 	virtual void setFechaCese(fecha*f);
-
+	virtual fecha* getFechaCese() const;
+	virtual string getTipo() { return "Plaza"; }
 private:
 	float aguinaldo;
 	puesto* categoriaLaboral;

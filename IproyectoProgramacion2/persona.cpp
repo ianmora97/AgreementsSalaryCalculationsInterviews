@@ -2,7 +2,7 @@
 
 persona::persona() : _name(VACIO), _id(VACIO), _lastName(VACIO), _birth(NULL), _address(VACIO), _phone(VACIO) {}
 persona::persona(string name, string id, string lastName, fecha* birth, string address, string phone) 
-	: _name(name), _id(id), _lastName(lastName), _birth(new fecha), _address(address), _phone(phone){}
+	: _name(name), _id(id), _lastName(lastName), _birth(birth), _address(address), _phone(phone){}
 
 persona::~persona(){
 	_name = VACIO;
@@ -26,13 +26,14 @@ void persona::setBirth(fecha* s) { _birth = s; }
 void persona::setAdd(string s) { _address = s; }
 void persona::setPhone(string s) { _phone = s; }
 
-string persona::toString() const {
+string persona::toString()  {
 	stringstream p;
-	p << "[ " << getName() 
-	  << ", " << getLastName() 
-	  << ", " << getId() 
-	  << ", " << getBirth()->getDia()<<"/"<<getBirth()->getMes()<<"/"<<getBirth()->getAnio()
-	  << ", " << getAddress() 
-	  << ", " << getPhone() << " ]" << FIN;
+	p << _name 
+	  << "\t" << _lastName 
+	  << "\t" << getId() 
+	  << "\t" << _birth->getDia()<<"/"<< _birth->getMes()<<"/"<< _birth->getAnio()
+	  << "\t" << getAddress() 
+	  << "\t" << getPhone() 
+	  << "\t";
 	return p.str();
 }

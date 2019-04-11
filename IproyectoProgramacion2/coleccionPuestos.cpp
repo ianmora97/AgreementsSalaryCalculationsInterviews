@@ -39,7 +39,7 @@ string coleccionPuestos::toString(){
 	s << "--------------------------------" << endl << endl;
 	for (int i = 0; i < cant; i++) {
 		s << "Puesto [" << i + 1 << "]" << endl;
-		s << "\t" << puestos[i]->toString() << endl;
+		s << "\t" << puestos[i]->toString(true) << endl;
 	}
 	s << "--------------------------------" << endl << endl;
 	return s.str();

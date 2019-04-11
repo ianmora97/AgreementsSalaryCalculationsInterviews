@@ -163,7 +163,7 @@ void empresa::contratarEmpleado(int n, ofstream& archivo) {
 		cout << "Fecha de nacimiento:\n";
 		cout << "Dia(1-31) > "; dia = evaluarInt(31,1);
 		cout << "Mes(1-12) > "; mes = evaluarInt(12,1);
-		cout << "Anio(1920-2001) > "; anio = evaluarInt(2001,1920);
+		cout << "Anio(0-2001) > "; anio = evaluarInt(2001,0);
 		anioNa = new fecha(dia,mes,anio);
 		pers = new persona(nombre,id,apellido,anioNa,direccion,telefono);
 		cout << "\nNombre del Puesto: ";
@@ -184,7 +184,7 @@ void empresa::contratarEmpleado(int n, ofstream& archivo) {
 		cout << "Digite la fecha de Ingreso del empleado:\n";
 		cout << "Dia(1-31) > "; dia = evaluarInt(31, 1);
 		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
-		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
+		cout << "Anio(0-2019) > "; anio = evaluarInt(2019, 0 );
 		ingreso = new fecha(dia, mes, anio);
 		cont = new contServicios(ingreso, p);
 		e = new empleado(cont,pers);
@@ -229,7 +229,7 @@ void empresa::contratarEmpleado(int n, ofstream& archivo) {
 		cout << "Mes(1-12) > "; mes = evaluarInt(12, 1);
 		cout << "Anio(1950-2019) > "; anio = evaluarInt(2019, 1950);
 		ingreso = new fecha(dia, mes, anio);
-		cont = new contPlanilla(ingreso, 0, p);
+		cont = new contPlanilla(ingreso, p);
 		e = new empleado(cont, pers);
 	}
 	else if (n == 3) {
@@ -275,18 +275,114 @@ void empresa::contratarEmpleado(int n, ofstream& archivo) {
 		cout << "Digite su ahorro:\n";
 		int m, plazo;
 		float a;
-		cout << "Dinero : "; cin >> a;
-		cout << "Plazo  : "; cin >> plazo;
-		cout << "Ahorro por: "; cin >> m;
+		cout << "Dinero : "; a = evaluarInt(99999999, 1);
+		cout << "Plazo  : "; plazo = evaluarInt(999, 1);
+		cout << "Ahorro por: "; m = evaluarInt(999999, 1);
 		ah = new ahorro(a,plazo,m);
 		cont = new contPlaza(ingreso,p,ah);
 		e = new empleado(cont, pers);
 	}
 	if (archivo.is_open()) {
-		archivo << e->toString() << "\n";
+		archivo << e->toString() << endl;
 	}
 	else {
 		cerr << "El archivo no se pudo abrir";
 	}
 	empleados->agregar(e);
+}
+void empresa::ingresarPuesto(ofstream& archivo) {
+	cout << "Ingreso de puestos\n";
+	cout << "Digite el nombre del puesto > ";
+	string nombre;
+	getline(cin,nombre,FIN);
+	cout << "Digite el salario del puesto > ";
+	int salario;
+	salario = evaluarInt(999999999,0);
+	cout << "Digite la fecha de pago: \n";
+	cout << "(1) quincenal\n(2) mensual\n";
+	int v;
+	int fechap;
+	v = evaluarInt(2,1);
+	switch (v){
+	case 1: fechap = 15; break;
+	default: fechap = 30; break;
+	}
+	puesto* p = new puesto(salario, nombre, fechap);
+	puestos->agregar(p);
+	if (!archivo.fail()) {
+		archivo << p->getPuesto() << TAB << p->getBase() << TAB << p->getFecha();
+	}
+}
+void empresa::cambioModalidad(empleado* e) {
+	contrato* cambio = NULL;
+	cout << "El empleado " << e->getInfo()->getName() << " tiene un contrato por "<<e->getContrato()->getTipo()<<FIN;
+	if (e->getContrato()->getTipo() == "Servicios") {
+		cout << "Puede cambiar la modalidad a\n(1)\"Plaza\"\n(2)\"Planilla\"\n(0)\"Cancelar\"";
+		int op;
+		op = evaluarInt(2,0);
+		if (op == 1) {
+			cout << "Digite su ahorro:\n";
+			int m, plazo;
+			float a;
+			cout << "Dinero : "; a = evaluarInt(99999999,1);
+			cout << "Plazo  : "; plazo = evaluarInt(999,1);
+			cout << "Ahorro por: "; m = evaluarInt(999999,1);
+			ahorro* ah = new ahorro(a, plazo, m);
+			cambio = new contPlaza(e->getContrato()->getFechaIngreso(), e->getContrato()->getPuesto(), ah);
+		}
+		else if (op == 2) {
+			cambio = new contPlanilla(e->getContrato()->getFechaIngreso(),e->getContrato()->getPuesto());
+		}
+		else {
+			cout << " ";
+		}
+	}
+	else if(e->getContrato()->getTipo() == "Planilla"){
+		cout << "Puede cambiar la modalidad a\n(1)\"Plaza\"\n(0)\"Cancelar\"";
+		int op;
+		op = evaluarInt(2, 0);
+		if (op == 1) {
+			cout << "Digite su ahorro:\n";
+			int m, plazo;
+			float a;
+			cout << "Dinero : "; a = evaluarInt(99999999, 1);
+			cout << "Plazo  : "; plazo = evaluarInt(999, 1);
+			cout << "Ahorro por: "; m = evaluarInt(999999, 1);
+			ahorro* ah = new ahorro(a, plazo, m);
+			cambio = new contPlaza(e->getContrato()->getFechaIngreso(), e->getContrato()->getPuesto(), ah);
+		}
+		else {
+			cout << " ";
+		}
+	}
+
+}
+void empresa::modificaPuesto(puesto* p) {
+	cout << "Que desea modificar?\n";
+	cout << "(1) Salario\n(2) Nombre\n(3) Fecha de pago\n(0) Cancelar";
+	int opc = evaluarInt(3, 0);
+	if (opc == 2) {
+		cout << "Digite el nombre del puesto > ";
+		string nombre;
+		getline(cin, nombre, FIN);
+		p->setNombre(nombre);
+	}
+	else if (opc == 1) {
+		cout << "Digite el salario del puesto > ";
+		int salario;
+		salario = evaluarInt(999999999, 0);
+		p->setBase(salario);
+	}
+	else if (opc == 3) {
+		cout << "Digite la fecha de pago: \n";
+		cout << "(1) quincenal\n(2) mensual\n";
+		int v;
+		int fechap;
+		v = evaluarInt(2, 1);
+		switch (v) {
+		case 1: fechap = 15; break;
+		default: fechap = 30; break;
+		}
+		p->setFecha(fechap);
+	}
 }

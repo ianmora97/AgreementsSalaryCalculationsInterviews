@@ -3,28 +3,32 @@
 
 #include "contrato.h"
 
+
 using namespace std;
 
 class contPlanilla : public contrato{
 public:
-	contPlanilla(fecha*,float,puesto*);
+	contPlanilla(fecha*,puesto*);
+	contPlanilla(contrato*);
 	virtual ~contPlanilla();
 
-	virtual float cargasSociales();
-	virtual float ahorroObligatorio();
-	virtual float impuestoSobrelaRenta();
+	virtual int getCargasSociales() const { return 1; }
+	virtual int getImpuestos() { return 1; }
+
 	virtual void setVacaciones(int v);
 	virtual float getAguinaldo();
 	virtual int getVacaciones();
+
 
 	//metodos virtuales puros
 	virtual puesto* getPuesto();
 	virtual void setFechaCese(fecha* f);
 	virtual fecha* getFechaIngreso();
 	virtual string toString();
-
+	virtual fecha* getFechaCese() const;
+	virtual string getTipo() { return "Planilla"; }
 private:
-
+	
 	puesto* _puesto;
 	int vacaciones;
 	float aguinaldo;

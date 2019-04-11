@@ -1,4 +1,3 @@
-Datos del empleado: 
-[ giancarlo, alvarado sanchez, 12871827827, 00052E58, alajuela, 8712871827 ]
-
-
+Ian	Mora Rodriguez	116890118	3/10/1997	San Jose	84018895	
+Sylvia	Porras Hidalgo	116890118	7/12/1994	San Jose	55224411	
+Ambar	Sancho Porras	116890118	25/4/1990	San Jose	88995566	

@@ -1,0 +1,4 @@
+Publicidad	450000	0	0	15
+Diseniador	105000	0	0	15
+Front end	550000	0	0	15
+Back end	510000	0	0	15

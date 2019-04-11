@@ -17,11 +17,11 @@ public:
 	virtual bool esBisiesto(int anio); //calcula si el año es biciesto en caso de que lo sea
 	virtual int espacio(int anio, int mes); //me da los espacios cuando un dia termina lunes 31 y el siguiente es martes 1
 	virtual void getCalendarioxMes();
-	virtual string toString();
+	virtual string toString(bool t);
 
-	virtual int getAnio() const;
-	virtual int getMes() const;
-	virtual int getDia() const;
+	virtual int getAnio() ;
+	virtual int getMes() ;
+	virtual int getDia() ;
 
 	virtual void setAnio(int);
 	virtual void setMes(int);

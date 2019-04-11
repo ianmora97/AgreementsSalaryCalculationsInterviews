@@ -22,10 +22,13 @@ public:
 	virtual void ingresarEmpleado(contrato*, persona*);
 	virtual string getDatos();
 	virtual string verRegistroEmpleados(ifstream&);
+	virtual void modificaPuesto(puesto*);
 
 	virtual string imprimeDatosEmpleados();
 	virtual void cambiaDatos(int n);
 	virtual void contratarEmpleado(int n, ofstream&);
+	virtual void ingresarPuesto(ofstream&);
+	virtual void cambioModalidad(empleado*);
 
 private:
 	string _name; //nombre de la empresa
